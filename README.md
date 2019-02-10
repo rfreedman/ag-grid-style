@@ -7,10 +7,10 @@ This project is a playground for customizing the theme for ag-grid.
 This is an Angular 6 application, and must be "run" using it's built-in development server.
 It cannot be loaded into a browser from the file system.
 
-To run the project from the command line, use the command <pre>ng serve</pre> from the root of the project
+To run the project from the command line, use the command `ng serve` from the root of the project
 folder, and then open your web browser to http://locahost:4200
 
-Alternatively, you can run the command <pre>ng serve -o</pre> and Angular will open the application
+Alternatively, you can run the command `ng serve -o` and Angular will open the application
 in a new browser tab in your default browser.
 
 ## Modifying the Theme
@@ -42,30 +42,30 @@ The override method is loosely based on https://stackoverflow.com/questions/4918
 and consists of the following:
 
  * The `angular.json` file contains the following 'styles' section:
- ```
- "styles": [
-     "src/styles.scss",
- ]
- ```
+
+       "styles": [
+          "src/styles.scss",
+       ]
+
 
  * The `src/style/styles.scss` file includes the following import as it's first line:
-   ```
-   @import "ag-grid-override";
-   ```
+
+       @import "ag-grid-override";
+   
    Addtional lines in this file contain other global styles, unrelated to ag-grid
  
  
  * The `src/style/ag-grid-override.scss` file contains the following: 
-    ```
-    // Variable overrides for customizing ag-grid
-    $odd-row-background-color: rgba(34, 139, 34, 0.2);
+ 
+       // Variable overrides for customizing ag-grid
+       $odd-row-background-color: rgba(34, 139, 34, 0.2);
     
-    // Note - currently based on the 'ag-theme-balham' theme.
-    // Change all instances of 'ag-theme-balham' below to switch to a different base theme
-    $icons-path: "~ag-grid-community/src/styles/ag-theme-balham/icons/";
-    @import "~ag-grid-community/src/styles/ag-grid.scss";
-    @import "~ag-grid-community/src/styles/ag-theme-balham/sass/ag-theme-balham";
-    ```
+       // Note - currently based on the 'ag-theme-balham' theme.
+       // Change all instances of 'ag-theme-balham' below to switch to a different base theme
+       $icons-path: "~ag-grid-community/src/styles/ag-theme-balham/icons/";
+       @import "~ag-grid-community/src/styles/ag-grid.scss";
+       @import "~ag-grid-community/src/styles/ag-theme-balham/sass/ag-theme-balham";
+ 
     * The `$odd-row-background-color` variable is an override of the pre-defined ag-grid theme variable of the same name.
       This particular scss variable sets the background color of odd-numbered rows in the grid. Additional theme variable 
       overrides should be placed here.
