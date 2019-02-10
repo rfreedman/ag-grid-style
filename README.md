@@ -56,16 +56,17 @@ and consists of the following:
  
  
  * The `src/style/ag-grid-override.scss` file contains the following: 
- 
+```
        // Variable overrides for customizing ag-grid
        $odd-row-background-color: rgba(34, 139, 34, 0.2);
-    
+       
        // Note - currently based on the 'ag-theme-balham' theme.
        // Change all instances of 'ag-theme-balham' below to switch to a different base theme
        $icons-path: "~ag-grid-community/src/styles/ag-theme-balham/icons/";
        @​import "~ag-grid-community/src/styles/ag-grid.scss";
        @​import "~ag-grid-community/src/styles/ag-theme-balham/sass/ag-theme-balham";
- 
+```
+​    
     * The `$odd-row-background-color` variable is an override of the pre-defined ag-grid theme variable of the same name.
       This particular scss variable sets the background color of odd-numbered rows in the grid. Additional theme variable 
       overrides should be placed here.
