@@ -42,21 +42,21 @@ The override method is loosely based on https://stackoverflow.com/questions/4918
 and consists of the following:
 
  * The `angular.json` file contains the following 'styles' section:
- <pre>
+ ```
  "styles": [
      "src/styles.scss",
  ]
- </pre>
+ ```
 
  * The `src/style/styles.scss` file includes the following import as it's first line:
-   <pre>
+   ```
    @import "ag-grid-override";
-   </pre>
+   ```
    Addtional lines in this file contain other global styles, unrelated to ag-grid
  
  
  * The `src/style/ag-grid-override.scss` file contains the following: 
-    <pre>
+    ```
     // Variable overrides for customizing ag-grid
     $odd-row-background-color: rgba(34, 139, 34, 0.2);
     
@@ -65,7 +65,7 @@ and consists of the following:
     $icons-path: "~ag-grid-community/src/styles/ag-theme-balham/icons/";
     @import "~ag-grid-community/src/styles/ag-grid.scss";
     @import "~ag-grid-community/src/styles/ag-theme-balham/sass/ag-theme-balham";
-    </pre>
+    ```
     * The `$odd-row-background-color` variable is an override of the pre-defined ag-grid theme variable of the same name.
       This particular scss variable sets the background color of odd-numbered rows in the grid. Additional theme variable 
       overrides should be placed here.
