@@ -50,7 +50,7 @@ and consists of the following:
 
  * The `src/style/styles.scss` file includes the following import as it's first line:
 
-       @import "ag-grid-override";
+       @​​import "ag-grid-override";
    
    Addtional lines in this file contain other global styles, unrelated to ag-grid
  
@@ -63,8 +63,8 @@ and consists of the following:
        // Note - currently based on the 'ag-theme-balham' theme.
        // Change all instances of 'ag-theme-balham' below to switch to a different base theme
        $icons-path: "~ag-grid-community/src/styles/ag-theme-balham/icons/";
-       @import "~ag-grid-community/src/styles/ag-grid.scss";
-       @import "~ag-grid-community/src/styles/ag-theme-balham/sass/ag-theme-balham";
+       @​import "~ag-grid-community/src/styles/ag-grid.scss";
+       @​import "~ag-grid-community/src/styles/ag-theme-balham/sass/ag-theme-balham";
  
     * The `$odd-row-background-color` variable is an override of the pre-defined ag-grid theme variable of the same name.
       This particular scss variable sets the background color of odd-numbered rows in the grid. Additional theme variable 
