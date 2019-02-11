@@ -1,15 +1,26 @@
 import {Component} from '@angular/core';
 
+import {DataService} from './data-service';
+import {FinancialData} from './domain/financial-data';
+import {formatBigDecimalCurrency} from './cell-formatters';
+import {rightAlignStyle} from './cell-styles';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
+  constructor(private service: DataService) {
+    this.service.getData().subscribe((data) => this.rowData = data);
+  }
+
+
   columnDefs = [
     {
-      headerName: 'First Name',
-      field: 'firstName',
+      headerName: 'Category',
+      field: 'category',
       resizable: true,
       sortable: true,
       autoHeight: true,
@@ -17,49 +28,54 @@ export class AppComponent {
       editable: true
     },
     {
-      headerName: 'Last Name',
-      field: 'lastName',
+      headerName: 'Classification',
+      field: 'classification',
       resizable: true,
       sortable: true,
       autoHeight: true,
       enableRowGroup: true,
       editable: true
-    }
+    },
+    {
+      headerName: 'Grouping',
+      field: 'grouping',
+      resizable: true,
+      sortable: true,
+      autoHeight: true,
+      enableRowGroup: true,
+      editable: true
+    },
+    {
+      headerName: 'Description',
+      field: 'line_item_description',
+      resizable: true,
+      sortable: true,
+      autoHeight: true,
+      enableRowGroup: true,
+      editable: true
+    },
+    {
+      headerName: 'Amount',
+      field: 'amount',
+      resizable: true,
+      sortable: true,
+      autoHeight: true,
+      enableRowGroup: true,
+      editable: true,
+      cellStyle: rightAlignStyle,
+      valueFormatter: formatBigDecimalCurrency
+    },
+    {
+      headerName: 'Date',
+      field: 'date',
+      resizable: true,
+      sortable: true,
+      autoHeight: true,
+      enableRowGroup: true,
+      editable: true
+    },
   ];
 
-  rowData = [
-    {firstName: 'Fred', lastName: 'Flintstone'},
-    {firstName: 'Wilma', lastName: 'Flintstone'},
-    {firstName: 'Pebbles', lastName: 'Flintstone'},
-    {firstName: 'Barney', lastName: 'Rubble'},
-    {firstName: 'Betty', lastName: 'Rubble'},
-    {firstName: 'Bamm-Bamm', lastName: 'Rubble'},
-    {firstName: 'Bugs', lastName: 'Bunny'},
-    {firstName: 'Mickey', lastName: 'Mouse'},
-    {firstName: 'Scooby', lastName: 'Doo'},
-    {firstName: 'Homer', lastName: 'Simpson'},
-    {firstName: 'Lisa', lastName: 'Simpson'},
-    {firstName: 'Bart', lastName: 'Simpson'},
-    {firstName: 'Marge', lastName: 'Simpson'},
-    {firstName: 'Donald', lastName: 'Duck'},
-    {firstName: 'SpongeBob', lastName: 'SquarePants'},
-    {firstName: 'Daffy', lastName: 'Duck'},
-    {firstName: 'Winnie', lastName: 'the Pooh'},
-    {firstName: 'Wilie E.', lastName: 'Coyote'},
-    {firstName: 'Tom', lastName: 'Cat'},
-    {firstName: 'Jerry', lastName: 'Mouse'},
-    {firstName: 'Foghorn', lastName: 'Leghorn'},
-    {firstName: 'Pepe', lastName: 'Le Pew'},
-    {firstName: 'Yosemite', lastName: 'Sam'},
-    {firstName: 'Yogi', lastName: 'Bear'},
-    {firstName: 'Charlie', lastName: 'Brown'},
-    {firstName: 'Woody', lastName: 'Woodpecker'},
-    {firstName: 'Porky', lastName: 'Pig'},
-    {firstName: 'Elmer', lastName: 'Fudd'},
-    {firstName: 'Tweety', lastName: 'Bird'},
-    {firstName: 'Road', lastName: 'Runner'},
-    {firstName: 'Bullwinkle J.', lastName: 'Moose'},
-    {firstName: 'Rocky', lastName: 'Squirrel'},
-    {}
-  ];
+  rowData: FinancialData[];
+
 }

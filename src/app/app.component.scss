@@ -1,0 +1,32 @@
+$header-height: 40px;
+$header-color: rgb(176, 196, 222);
+$header-text-color: rgb(0,0,0);
+$spacer-margin: 10px;
+
+.content {
+  width: calc(100vw - #{$spacer-margin * 2});
+  height: calc(100vh - #{$spacer-margin * 2});
+  margin: 10px;
+}
+
+.header {
+  height: $header-height;
+  width: 100%;
+  color: $header-text-color;
+  background-color: $header-color;
+  margin-bottom: $spacer-margin;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid-holder {
+  height: calc(100vh - #{$header-height} - #{$spacer-margin * 2} - 200px);
+  width: 100%;
+
+  #grid {
+    height: 100%;
+    width: 100%;
+  }
+}
